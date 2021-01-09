@@ -1,0 +1,51 @@
+﻿<Window x:Name="window" x:Class="FSBEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FSBEditor"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="FMOD Sound Bank Editor" Height="450" Width="526" MinWidth="526" MinHeight="450">
+    <Grid Margin="0,0,432,0">
+        <Menu HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="518" Margin="0,0,-432,0">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Click="mnuNew_Click" />
+                <MenuItem Header="_Open FSB..." Click="OpenFSB_Click" />
+                <MenuItem x:Name="mnuSave" Header="_Save As..." Click="mnuSave_Click"/>
+            </MenuItem>
+        </Menu>
+        <TabControl HorizontalAlignment="Left" Height="397" Margin="0,21,-432,0" VerticalAlignment="Top" Width="518">
+            <TabItem Header="FSB Entries">
+                <Grid x:Name="grdFSB" Background="#FFE5E5E5">
+                    <ListBox x:Name="lstFsb" HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="208" SelectionChanged="lstFsb_SelectionChanged"/>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="241,5,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtName" MaxLength="32" HorizontalAlignment="Left" Height="18" Margin="360,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False" TextChanged="txtName_TextChanged"/>
+                    <Label Content="Size" HorizontalAlignment="Left" Margin="241,28,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtFileSizeRO" HorizontalAlignment="Left" Height="18" Margin="360,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False"/>
+                    <Label Content="Sample Rate (Hz)" HorizontalAlignment="Left" Margin="241,51,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtSampleRateRO" HorizontalAlignment="Left" Height="18" Margin="360,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False"/>
+                    <Label Content="Sample Count" HorizontalAlignment="Left" Margin="241,74,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtSamplesRO" HorizontalAlignment="Left" Height="18" Margin="360,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False"/>
+                    <Label Content="Loop Start Sample" HorizontalAlignment="Left" Margin="241,97,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtStartSample" HorizontalAlignment="Left" Height="18" Margin="360,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False" TextChanged="txtStartSample_TextChanged"/>
+                    <Label Content="Loop End Sample" HorizontalAlignment="Left" Margin="241,120,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtEndSample" HorizontalAlignment="Left" Height="18" Margin="360,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False" TextChanged="txtEndSample_TextChanged"/>
+                    <Label Content="Panning" HorizontalAlignment="Left" Margin="241,143,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtPan" HorizontalAlignment="Left" Height="18" Margin="360,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False" TextChanged="txtPan_TextChanged"/>
+                    <Label Content="Channels" HorizontalAlignment="Left" Margin="241,166,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtChannelsRO" HorizontalAlignment="Left" Height="18" Margin="360,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False"/>
+                    <Label Content="Codec" HorizontalAlignment="Left" Margin="241,189,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtCodecRO" HorizontalAlignment="Left" Height="18" Margin="360,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" IsEnabled="False"/>
+                    <Label Content="Volume" HorizontalAlignment="Left" Margin="241,212,0,0" VerticalAlignment="Top" Width="108"/>
+                    <TextBox x:Name="txtVolume" HorizontalAlignment="Left" Height="18" Margin="360,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" IsEnabled="False" TextChanged="txtVolume_TextChanged"/>
+                    <Button x:Name="btnImportXma" Content="Import .xma" HorizontalAlignment="Left" Height="21" Margin="426,239,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnImportXma_Click"/>
+                    <Label Content="Audio Stream" HorizontalAlignment="Left" Margin="241,236,0,0" VerticalAlignment="Top" Width="108"/>
+                    <Label x:Name="lblCurrentXma" Content="" HorizontalAlignment="Right" Margin="0,260,11,0" VerticalAlignment="Top" Width="259" FontSize="10"/>
+                    <Button x:Name="btnAdd" Content="+" HorizontalAlignment="Left" Height="25" Margin="211,10,0,0" VerticalAlignment="Top" Width="25" Click="btnAdd_Click" />
+                    <Button x:Name="btnDel" Content="-" HorizontalAlignment="Left" Height="25" Margin="211,40,0,0" VerticalAlignment="Top" Width="25"  IsEnabled="False" Click="btnDel_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
