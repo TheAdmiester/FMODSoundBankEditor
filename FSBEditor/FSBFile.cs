@@ -187,6 +187,7 @@ namespace FSBEditor
                     stream.WriteInt32(3);
                     stream.WriteInt32(0);
 
+                    // Some unknown ints here - usually appear to be 384 or 768 more than numSamples based on mono or stereo
                     if (entry.unknownInt == 0)
                     {
                         if (entry.numChannels == 2)

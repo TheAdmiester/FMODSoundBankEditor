@@ -19,6 +19,7 @@ namespace FSBEditor
                 xml.WriteStartElement("Soundbank");
                 xml.WriteAttributeString("name", string.Format("{0}.fsb", fileName));
                 
+                // If following the Turn10 naming formats then write the loop nodes differently
                 if (fileName.ToLower().Contains("_exh"))
                 {
                     soundType = "ExhaustL";
@@ -36,6 +37,8 @@ namespace FSBEditor
                     WriteBankLoops(xml, fsb);
                 xml.WriteEndElement();
 
+                // Lots of hardcoded DSP and sound settings here - they rarely need to be changed so hardcoded for user simplicity
+                // Can always be adjusted in the output XML if needed
                 if (soundType == "ExhaustL")
                 {
                     // Write another loop bank for stereo
@@ -313,6 +316,7 @@ namespace FSBEditor
             }
         }
 
+        // Rough calculations to make the bank rev ranges overlap somewhat similar to T10's design
         static void WriteBankLoops(XmlWriter xml, FSBFile fsb)
         {
             int prevIndex = -1;
